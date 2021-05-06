@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Sistema - Produtos</title>
+
+        {% include 'common/css.html' %}
+
+    </head>
+    <body>
+
+        {% include 'common/header.html' %}
+
+        <div class="container-fluid">
+            <div class="row">
+
+                {% include 'common/sidebar.html' %}
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Produtos em Estoque</h1>
+                    </div>
+                    <div class="table-responsive">
+
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-warning" role="alert">
+                                      {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        <a href="{{ url_for('produto.insert') }}" class="btn btn-dark">Adicionar Novo Produto</a>
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Quantidade</th>
+                                    <th>Categoria</th>
+                                    <th>Editar</th>
+                                    <th>Excluir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for produto in produtos %}
+                                <tr>
+                                    <td> {{ produto.nome }} </td>
+                                    <td> {{ produto.quantidade }} </td>
+                                    <td> {{ produto.categoria }} </td>
+                                    <td><a href="{{ url_for('produto.edit', idproduto=produto.idproduto) }}">Editar</a></td>
+                                    <td><a href="{{ url_for('produto.delete', idproduto=produto.idproduto) }}">Excluir</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        {% include 'common/js.html' %}
+
+    </body>
+</html>

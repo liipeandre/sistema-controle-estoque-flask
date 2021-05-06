@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Sistema - Produtos</title>
+
+        {% include 'common/css.html' %}
+
+    </head>
+    <body>
+        {% include 'common/header.html' %}
+
+        <div class="container-fluid">
+            <div class="row">
+
+                {% include 'common/sidebar.html' %}
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Alterar Produto</h1>
+                    </div>
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-warning" role="alert">
+                                  {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form action="{{ url_for('produto.edit') }}" method="post">
+                        <input type="hidden" name="idproduto" value="{{ produto.idproduto }}" id="idproduto" class="form-control" placeholder="Id Produto" required>
+
+                        <label for="nome" class="visually-hidden">Nome:</label>
+                        <input type="text" name="nome" value="{{ produto.nome }}" id="nome" class="form-control" placeholder="Nome do Produto" required autofocus>
+
+                        <label for="quantidade" class="visually-hidden">Quantidade:</label>
+                        <input type="number" name="quantidade" value="{{ produto.quantidade }}" id="quantidade" class="form-control" placeholder="Quantidade" required>
+
+                        <label for="categoria" class="visually-hidden">Categoria</label>
+                        <select class="form-select" name="categoria" id="categoria">
+                            <option value="Placeholder" selected disabled>Selecione uma categoria</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Telefonia">Telefonia</option>
+                            <option value="Moda">Moda</option>
+                            <option value="Eletrodomésticos">Eletrodomésticos</option>
+                            <option value="Automotivo">Automotivo</option>
+                            <option value="Pet Shop">Pet Shop</option>
+                        </select>
+
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Salvar</button>
+                    </form>
+                </main>
+            </div>
+        </div>
+
+        {% include 'common/js.html' %}
+
+    </body>
+</html>
