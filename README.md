@@ -1,18 +1,17 @@
-# Sistema de Controle de Estoque
+# Inventory Control System
 
-# Autor
+# Author
 
 - André Felipe Pereira dos Santos
 
-# Descrição
+# Description
 
-Um sistema bem simples de controle de estoque, desenvolvido por mim, usando as tecnologias: HTML5, CSS3 com Bootstrap e Python, usando a framework Flask, para o backend. Suas funcionalidades incluem:
+A very simple inventory control system, using technologies: HTML5, CSS3 with Bootstrap and Python, using the Flask framework for the backend. Its features includes:
 
-- Sistema de autenticação.
-- CRUD completo de produtos (insert, delete, list, view e edit).
-- 
+- Authentication system.
+- Complete CRUD of products (insert, delete, list, view and edit).
 
-Este repositório possui:
+This repository has:
 
-- O código-fonte desenvolvido para o backend e frontend.
-- O arquivo .mwb, contendo o diagrama do modelo físico do banco de dados.
+- Source code developed for the backend and frontend.
+- The .mwb file, containing the diagram of the physical model of the database.
